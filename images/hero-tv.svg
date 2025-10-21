@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4facfe"/>
+      <stop offset="0.5" stop-color="#667eea"/>
+      <stop offset="1" stop-color="#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1f3a"/>
+      <stop offset="1" stop-color="#0a0e1f"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- TV Frame -->
+  <rect x="16" y="32" width="768" height="384" rx="24" fill="#0a0e1f" filter="url(#glow)"/>
+  <rect x="20" y="36" width="760" height="376" rx="22" fill="#151933" opacity="0.8"/>
+  
+  <!-- Screen -->
+  <rect x="48" y="64" width="704" height="316" rx="12" fill="url(#screen)"/>
+  
+  <!-- Content area with gradient -->
+  <rect x="68" y="84" width="664" height="276" rx="8" fill="url(#grad)" opacity="0.9"/>
+  
+  <!-- Play icon overlay -->
+  <circle cx="400" cy="222" r="48" fill="rgba(255,255,255,0.15)" filter="url(#glow)"/>
+  <path d="M385 202 L385 242 L425 222 Z" fill="white" opacity="0.9"/>
+  
+  <!-- LED indicator -->
+  <circle cx="400" cy="408" r="6" fill="#00f2fe" opacity="0.8">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Stand -->
+  <rect x="360" y="416" width="80" height="8" rx="4" fill="#151933"/>
+  <rect x="320" y="424" width="160" height="16" rx="8" fill="#0a0e1f"/>
+  
+  <!-- Decorative scanlines -->
+  <g opacity="0.05">
+    <line x1="68" y1="100" x2="732" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="140" x2="732" y2="140" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="180" x2="732" y2="180" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="220" x2="732" y2="220" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="260" x2="732" y2="260" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="300" x2="732" y2="300" stroke="white" stroke-width="1"/>
+    <line x1="68" y1="340" x2="732" y2="340" stroke="white" stroke-width="1"/>
+  </g>
+</svg>
+

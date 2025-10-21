@@ -1,0 +1,391 @@
+/* Animações Adicionais para Nossa TV */
+
+/* Animações Gerais */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 6px rgba(79,70,229,0.12); }
+  50% { box-shadow: 0 0 26px rgba(79,70,229,0.22); }
+}
+
+/* Classes de animação utilitárias */
+.animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+.fade-in { animation: fadeIn 0.6s ease both; }
+.slide-in-left { animation: slideInLeft 0.6s ease both; }
+.slide-in-right { animation: slideInRight 0.6s ease both; }
+.slide-in-up { animation: slideInUp 0.6s ease both; }
+.pulse { animation: pulse 2s infinite ease-in-out; }
+.float { animation: float 3s ease-in-out infinite; }
+.glow { animation: glow 3s ease-in-out infinite; }
+
+/* Animação para o logo */
+.logo {
+    animation: slideInLeft 0.8s ease;
+}
+
+.logo:hover {
+    animation: pulse 1s ease;
+}
+
+/* Animações para cards de categoria */
+.category-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.category-card:hover::before {
+    animation: shine 0.6s ease;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+.category-icon {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    animation: bounce 0.6s ease;
+}
+
+/* Animações para cards de planos */
+.plan-card {
+    position: relative;
+}
+
+.plan-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(255, 193, 7, 0.1));
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.plan-card:hover::after {
+    opacity: 1;
+}
+
+.plan-card.featured {
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* Animações para botões */
+.cta-button,
+.download-btn,
+.plan-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before,
+.download-btn::before,
+.plan-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before,
+.download-btn:hover::before,
+.plan-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Animações para o contador */
+.channels-counter {
+    position: relative;
+    display: inline-block;
+}
+
+.channels-counter::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #FFC107, #FFF59D);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: slideInRight 1s ease 0.5s forwards;
+}
+
+/* Animações para ícones de redes sociais */
+.social-links a {
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    animation: bounce 0.6s ease;
+}
+
+/* Animações para o menu mobile */
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Animações para o mockup de celular */
+.phone-mockup {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Animações de carregamento */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #FFC107;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+}
+
+/* Animações para notificações toast */
+.toast {
+    animation: slideInRight 0.3s ease;
+}
+
+.toast.removing {
+    animation: slideInRight 0.3s ease reverse;
+}
+
+/* Animações para modais */
+.modal {
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    animation: slideInUp 0.3s ease;
+}
+
+/* Animações específicas para mobile */
+@media (max-width: 768px) {
+    .category-card,
+    .feature-item,
+    .plan-card {
+        animation: slideInUp 0.6s ease;
+    }
+    
+    .hero h1 {
+        animation: slideInDown 0.8s ease;
+    }
+    
+    .hero p {
+        animation: slideInUp 0.8s ease 0.2s;
+        animation-fill-mode: both;
+    }
+    
+    .logo { font-size: 18px }
+    .section-title { font-size: 28px }
+}
+
+/* Animações de carregamento da página */
+body:not(.loaded) * {
+    animation: none !important;
+    transition: none !important;
+}
+
+body.loaded {
+    overflow-x: hidden;
+}
+
+body.loaded .hero {
+    animation: fadeIn 1s ease;
+}
+
+body.loaded .categories {
+    animation: slideInUp 0.8s ease 0.2s;
+    animation-fill-mode: both;
+}
+
+body.loaded .features {
+    animation: slideInUp 0.8s ease 0.4s;
+    animation-fill-mode: both;
+}
+
+body.loaded .plans {
+    animation: slideInUp 0.8s ease 0.6s;
+    animation-fill-mode: both;
+}
+
+body.loaded .compatibility {
+    animation: slideInUp 0.8s ease 0.8s;
+    animation-fill-mode: both;
+}
+
+/* Animações de performance optimizadas */
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+/* Reduce motion para usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Animações para elementos com delay escalonado */
+.stagger-animation > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.6s ease forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animações de hover avançadas */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
+}
+
+/* Animações para texto */
+.text-focus {
+    animation: textFocus 1s ease;
+}
+
+@keyframes textFocus {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Animações para gradientes */
+.gradient-animation {
+    background: linear-gradient(270deg, #2E7D32, #1B5E20, #FFC107);
+    background-size: 600% 600%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
